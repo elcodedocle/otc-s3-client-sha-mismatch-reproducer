@@ -1,0 +1,16 @@
+services:
+    otc_s3_sha_mismatch_reproducer:
+        image: maven:3-eclipse-temurin-17
+        environment:
+            - AWS_SDK_VERSION=${AWS_SDK_VERSION}
+            - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+            - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+            - OBS_BUCKET_NAME=${OBS_BUCKET_NAME:-obs_s3_client_sha_mismatch_reproducer_test_bucket}
+        volumes:
+            - ./:/opt/otc-s3-client-sha-mismatch-reproducer
+        entrypoint:
+        - /bin/bash
+        - -c
+        - |
+            cd /opt/otc-s3-client-sha-mismatch-reproducer
+            mvn clean test
