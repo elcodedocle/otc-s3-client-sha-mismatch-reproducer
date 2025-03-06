@@ -1,5 +1,12 @@
 # otc-s3-client-sha-mismatch-reproducer
-OTC S3 client SHA mismatch reproducer
+OTC S3 client SHA mismatch reproducer.
+
+> [!IMPORTANT]
+> Fixed with [.requestChecksumCalculation(RequestChecksumCalculation.WHEN_REQUIRED)](
+> https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3BaseClientBuilder.html#requestChecksumCalculation(software.amazon.awssdk.core.checksums.RequestChecksumCalculation))
+> on `S3Client.builder()`.
+> 
+> See https://stackoverflow.com/questions/79487178/drop-checksum-header-on-aws-java-sdk-2-2-30-0
 
 ## About
 
