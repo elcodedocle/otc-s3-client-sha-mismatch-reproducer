@@ -51,6 +51,7 @@ public class S3Actions {
                     .endpointOverride(URI.create("https://obs.eu-nl.otc.t-systems.com"))
                     .forcePathStyle(true)
                     .region(Region.EU_WEST_1)
+                    .requestChecksumCalculation(RequestChecksumCalculation.WHEN_REQUIRED)
                     .build();
         }
         return s3AsyncClient;
